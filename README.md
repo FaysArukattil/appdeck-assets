@@ -1,2 +1,1 @@
-# appdeck-assets
-Public assets for AppDeck Studio
+# AppDeck Assets
