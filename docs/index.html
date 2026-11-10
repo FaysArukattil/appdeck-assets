@@ -3,356 +3,1312 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AppDeck Studio — Terms of Service & Privacy Policy</title>
+  <title>AppDeck Studio — Studio Mockups. Zero Hassle.</title>
+  <meta name="description" content="AppDeck Studio is the premier 100% on-device mockup studio. 500+ templates for phone, laptop, and tablet. Zero ads, zero paywalls, 100% free.">
+  <link rel="icon" type="image/png" href="images/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #090c11;
-      --card-bg: #11141b;
-      --card-border: #1e2430;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --bg-dark: #07090e;
+      --bg-surface: #0e121a;
+      --bg-card: #141923;
+      --bg-card-hover: #1a212e;
+      --border-subtle: #1e2638;
+      --border-accent: rgba(20, 184, 166, 0.45);
+      --accent-teal: #14b8a6;
+      --accent-teal-light: #5eead4;
+      --accent-teal-dark: #0f766e;
+      --accent-glow: rgba(20, 184, 166, 0.25);
+      --accent-cyan: #38bdf8;
+      --accent-gradient: linear-gradient(135deg, #2dd4bf 0%, #14b8a6 50%, #0284c7 100%);
       --text-primary: #f8fafc;
       --text-secondary: #94a3b8;
-      --text-tertiary: #64748b;
-      --accent: #38bdf8;
-      --accent-glow: rgba(56, 189, 248, 0.12);
-      --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --text-muted: #64748b;
+      --shadow-card: 0 12px 30px -10px rgba(0, 0, 0, 0.5);
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      background-color: var(--bg);
+      font-family: var(--font-main);
+      background-color: var(--bg-dark);
       color: var(--text-primary);
-      font-family: var(--font-family);
-      line-height: 1.65;
-      padding: 40px 20px 80px;
+      min-height: 100vh;
+      line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      position: relative;
     }
-    .container {
-      max-width: 840px;
+
+    /* Ambient background grid & glow */
+    body::before {
+      content: "";
+      position: fixed;
+      top: -200px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 1000px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(20, 184, 166, 0.16) 0%, rgba(56, 189, 248, 0.08) 45%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+      filter: blur(60px);
+    }
+
+    /* Outer Wrapper Frame */
+    .app-container {
+      max-width: 1200px;
       margin: 0 auto;
+      padding: 24px 20px 80px;
+      position: relative;
+      z-index: 1;
     }
-    header {
-      margin-bottom: 32px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid var(--card-border);
+
+    /* Top Studio Frame Container */
+    .studio-frame {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 32px;
+      box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.04);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .studio-frame::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-teal), var(--accent-cyan), transparent);
+      opacity: 0.8;
+    }
+
+    /* ── Navigation Bar ── */
+    .navbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
+      padding: 22px 36px;
+      position: relative;
+      z-index: 20;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
-    .header-left {
+
+    .brand-logo {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
     }
-    .logo-wrap {
-      width: 56px;
-      height: 56px;
+
+    .brand-logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
       flex-shrink: 0;
-      filter: drop-shadow(0 4px 12px rgba(20, 184, 166, 0.25));
+      box-shadow: 0 4px 14px var(--accent-glow);
+      display: block;
     }
-    h1 {
-      font-size: 24px;
+
+    .brand-logo-text {
+      font-size: 19px;
       font-weight: 800;
       letter-spacing: -0.4px;
-    }
-    .effective-date {
-      color: var(--text-tertiary);
-      font-size: 13px;
-      margin-top: 3px;
-    }
-    .play-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      background: #000000;
-      border: 1px solid #2d3748;
-      border-radius: 9px;
-      padding: 7px 14px;
-      color: #ffffff;
-      text-decoration: none;
-      transition: all 0.2s ease;
-      cursor: pointer;
-    }
-    .play-badge:hover {
-      border-color: var(--accent);
-      background: #0f172a;
-    }
-    .play-badge-sub {
-      display: block;
-      font-size: 9px;
-      letter-spacing: 0.6px;
-      color: #94a3b8;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-    .play-badge-main {
-      display: block;
-      font-size: 13.5px;
-      font-weight: 700;
-      letter-spacing: -0.2px;
-      line-height: 1.1;
-    }
-    .nav-tabs {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 32px;
-      position: sticky;
-      top: 10px;
-      background: rgba(9, 12, 17, 0.88);
-      backdrop-filter: blur(14px);
-      padding: 10px 0;
-      z-index: 10;
-      overflow-x: auto;
-    }
-    .tab-btn {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      color: var(--text-secondary);
-      padding: 8px 16px;
-      border-radius: 20px;
-      font-size: 12.5px;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: none;
-      white-space: nowrap;
-      transition: all 0.2s ease;
-    }
-    .tab-btn:hover, .tab-btn.active {
-      color: #ffffff;
-      border-color: var(--accent);
-      background: var(--accent-glow);
-    }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 16px;
-      padding: 30px;
-      margin-bottom: 24px;
-    }
-    h2 {
-      font-size: 19px;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 16px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    h3 {
-      font-size: 14.5px;
-      font-weight: 700;
-      color: #ffffff;
-      margin: 22px 0 8px;
+
+    .brand-tag {
+      background: rgba(20, 184, 166, 0.15);
+      border: 1px solid rgba(20, 184, 166, 0.35);
+      color: var(--accent-teal-light);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+      padding: 2px 8px;
+      border-radius: 6px;
+      text-transform: uppercase;
     }
-    p, li {
+
+    /* Nav links pill */
+    .nav-pill-menu {
+      display: flex;
+      align-items: center;
+      background: rgba(20, 25, 35, 0.7);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      padding: 5px 8px;
+      border-radius: 30px;
+      border: 1px solid var(--border-subtle);
+      gap: 4px;
+    }
+
+    .nav-link {
       color: var(--text-secondary);
+      text-decoration: none;
       font-size: 13.5px;
-      margin-bottom: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-link.active {
+      color: #ffffff;
+      background: var(--accent-teal-dark);
+      box-shadow: 0 2px 10px var(--accent-glow);
+    }
+
+    /* Play Store Badge CTA in Navbar */
+    .nav-play-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #000000;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      padding: 8px 16px;
+      color: #ffffff;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+
+    .nav-play-btn:hover {
+      border-color: var(--accent-teal);
+      background: #0f172a;
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(20, 184, 166, 0.25);
+    }
+
+    .nav-play-sub {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 0.7px;
+      color: #94a3b8;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .nav-play-title {
+      display: block;
+      font-size: 13.5px;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+      line-height: 1.1;
+    }
+
+    /* ── Hero Section ── */
+    .hero-section {
+      padding: 56px 36px 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 22px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(20, 184, 166, 0.12);
+      border: 1px solid rgba(20, 184, 166, 0.4);
+      color: var(--accent-teal-light);
+      padding: 6px 18px;
+      border-radius: 30px;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      backdrop-filter: blur(12px);
+    }
+
+    .hero-title {
+      font-size: clamp(34px, 5.2vw, 56px);
+      font-weight: 900;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      max-width: 900px;
+      margin: 0 auto 18px;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+
+    .hero-title span {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: clamp(15px, 2vw, 17px);
+      color: var(--text-secondary);
+      max-width: 660px;
+      margin: 0 auto 34px;
       line-height: 1.65;
     }
-    ul {
-      margin-left: 20px;
-      margin-bottom: 16px;
+
+    /* Hero Buttons — Ultra High Contrast & Visibility */
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
     }
-    li {
-      margin-bottom: 6px;
+
+    .btn-playstore-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: #ffffff;
+      color: #000000 !important;
+      padding: 14px 30px;
+      border-radius: 14px;
+      font-size: 15.5px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.25), 0 4px 12px rgba(0, 0, 0, 0.4);
+      transition: all 0.25s ease;
+      border: 2px solid #ffffff;
     }
-    .legal-notice {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 12px;
-      padding: 16px;
-      margin: 18px 0;
+
+    .btn-playstore-primary:hover {
+      background: #f1f5f9;
+      transform: translateY(-2px);
+      box-shadow: 0 14px 36px rgba(255, 255, 255, 0.35);
     }
-    .legal-notice p {
-      font-size: 12.5px;
+
+    .btn-hero-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid var(--border-subtle);
+      color: #ffffff;
+      padding: 14px 28px;
+      border-radius: 14px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .btn-hero-secondary:hover {
+      background: rgba(255, 255, 255, 0.12);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-2px);
+    }
+
+    /* ── Hero 3D Deck Showcase ── */
+    .hero-deck {
+      position: relative;
+      max-width: 960px;
+      margin: 0 auto 30px;
+      padding: 20px 0;
+      perspective: 1200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .deck-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -40%);
+      width: 70%;
+      height: 60%;
+      background: radial-gradient(ellipse at center, rgba(20, 184, 166, 0.35) 0%, rgba(56, 189, 248, 0.15) 45%, transparent 75%);
+      filter: blur(50px);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .deck-card {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.12);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      background: #000000;
+    }
+
+    .deck-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .deck-card.center {
+      width: 320px;
+      z-index: 5;
+      transform: translateY(-10px) scale(1.04);
+      border: 2px solid var(--accent-teal);
+      box-shadow: 0 30px 70px -15px rgba(20, 184, 166, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.2);
+    }
+
+    .deck-card.left {
+      width: 270px;
+      z-index: 3;
+      transform: translateX(45px) rotateY(16deg) rotateZ(-6deg) scale(0.92);
+      opacity: 0.88;
+    }
+
+    .deck-card.right {
+      width: 270px;
+      z-index: 3;
+      transform: translateX(-45px) rotateY(-16deg) rotateZ(6deg) scale(0.92);
+      opacity: 0.88;
+    }
+
+    .deck-card:hover {
+      z-index: 10 !important;
+      opacity: 1 !important;
+      transform: translateY(-16px) scale(1.06) !important;
+      box-shadow: 0 35px 80px -10px rgba(20, 184, 166, 0.5), 0 0 0 2px var(--accent-teal-light) !important;
+    }
+
+    .deck-floating-pill {
+      position: absolute;
+      background: rgba(14, 18, 26, 0.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(20, 184, 166, 0.4);
+      color: var(--text-primary);
+      padding: 10px 18px;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.6);
+      z-index: 8;
+      pointer-events: none;
+    }
+
+    .pill-left {
+      bottom: 24px;
+      left: 12px;
+    }
+
+    .pill-right {
+      top: 36px;
+      right: 16px;
+    }
+
+    .pill-icon {
+      color: var(--accent-teal-light);
+      font-size: 16px;
+    }
+
+    /* ── Store Listing Showcase Section ── */
+    .section-showcase {
+      padding: 70px 36px;
+      background: linear-gradient(180deg, rgba(14, 18, 26, 0) 0%, rgba(20, 25, 35, 0.6) 50%, rgba(14, 18, 26, 0) 100%);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 44px;
+    }
+
+    .section-tag {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-teal);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .section-title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 900;
+      letter-spacing: -0.8px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      color: #ffffff;
+    }
+
+    .section-subtitle {
+      font-size: 16px;
       color: var(--text-secondary);
-      margin-bottom: 0;
       line-height: 1.6;
     }
-    .legal-caps {
-      text-transform: uppercase;
-      font-size: 11px;
-      letter-spacing: 0.5px;
-      font-weight: 700;
-      color: #e2e8f0;
+
+    /* Listing Screenshots Grid */
+    .listing-carousel-wrap {
+      margin-bottom: 40px;
+    }
+
+    .listing-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 20px;
+      overflow-x: auto;
+      padding: 10px 4px 24px;
+      scroll-snap-type: x mandatory;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent-teal-dark) var(--bg-card);
+    }
+
+    .listing-grid::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .listing-grid::-webkit-scrollbar-thumb {
+      background: var(--accent-teal-dark);
+      border-radius: 6px;
+    }
+
+    .listing-item {
+      scroll-snap-align: center;
+      min-width: 210px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .listing-item:hover {
+      border-color: var(--accent-teal);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px -10px var(--accent-glow);
+    }
+
+    .listing-preview {
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      background: #000000;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .listing-preview img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .listing-item:hover .listing-preview img {
+      transform: scale(1.04);
+    }
+
+    .listing-info {
+      padding: 16px;
+    }
+
+    .listing-name {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: #ffffff;
       margin-bottom: 6px;
+      line-height: 1.3;
     }
-    footer {
-      text-align: center;
-      padding-top: 36px;
-      color: var(--text-tertiary);
+
+    .listing-desc {
       font-size: 12px;
-      border-top: 1px solid var(--card-border);
-      margin-top: 40px;
+      color: var(--text-secondary);
+      line-height: 1.45;
     }
-    footer a {
-      color: var(--accent);
+
+    /* Panoramic Poster Banner */
+    .poster-spotlight-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 28px;
+      overflow: hidden;
+      margin-top: 10px;
+      position: relative;
+      box-shadow: var(--shadow-card);
+      cursor: pointer;
+    }
+
+    .poster-spotlight-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent-teal), transparent);
+    }
+
+    .poster-img-wrap {
+      width: 100%;
+      position: relative;
+      aspect-ratio: 1376 / 768;
+      background: #000000;
+      overflow: hidden;
+    }
+
+    .poster-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .poster-caption {
+      padding: 22px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      background: rgba(14, 18, 26, 0.95);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .poster-caption-text h4 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 4px;
+    }
+
+    .poster-caption-text p {
+      font-size: 13.5px;
+      color: var(--text-secondary);
+    }
+
+    /* ── Features Section ── */
+    .features-section {
+      padding: 70px 36px;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 32px 28px;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature-card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(20, 184, 166, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 36px -10px var(--accent-glow);
+    }
+
+    .feature-icon-box {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: rgba(20, 184, 166, 0.12);
+      border: 1px solid rgba(20, 184, 166, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 22px;
+      color: var(--accent-teal-light);
+    }
+
+    .feature-card h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 10px;
+      letter-spacing: -0.3px;
+    }
+
+    .feature-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* ── Privacy Guarantee Box ── */
+    .guarantee-section {
+      padding: 50px 36px 70px;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .guarantee-box {
+      background: linear-gradient(135deg, rgba(20, 25, 35, 0.95) 0%, rgba(14, 18, 26, 0.95) 100%);
+      border: 1px solid var(--border-accent);
+      border-radius: 28px;
+      padding: 44px 40px;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 40px;
+      align-items: center;
+      box-shadow: 0 20px 50px -15px rgba(20, 184, 166, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .guarantee-box::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -100px;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .guarantee-left h2 {
+      font-size: clamp(24px, 3.2vw, 34px);
+      font-weight: 900;
+      line-height: 1.2;
+      color: #ffffff;
+      margin-bottom: 16px;
+      letter-spacing: -0.5px;
+    }
+
+    .guarantee-left p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      line-height: 1.65;
+    }
+
+    .guarantee-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .guarantee-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 8px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .guarantee-pill span {
+      color: var(--accent-teal-light);
+    }
+
+    .guarantee-right {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 24px 28px;
+    }
+
+    .guarantee-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .guarantee-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .check-icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: rgba(20, 184, 166, 0.2);
+      color: var(--accent-teal-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .guarantee-item-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 2px;
+    }
+
+    .guarantee-item-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* ── Footer ── */
+    .studio-footer {
+      padding: 44px 36px 36px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+
+    .footer-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .footer-logo-img {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      box-shadow: 0 4px 10px rgba(20, 184, 166, 0.3);
+    }
+
+    .footer-copyright {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    .footer-link {
+      color: var(--text-secondary);
       text-decoration: none;
+      font-size: 13.5px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--accent-teal-light);
+    }
+
+    /* Lightbox Modal */
+    .lightbox-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.92);
+      backdrop-filter: blur(16px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .lightbox-modal.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      position: relative;
+    }
+
+    .lightbox-content img {
+      max-width: 100%;
+      max-height: 85vh;
+      border-radius: 18px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 0 1px var(--border-accent);
+      display: block;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -46px;
+      right: 0;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #ffffff;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: all 0.2s ease;
+    }
+
+    .lightbox-close:hover {
+      background: var(--accent-teal);
+      border-color: var(--accent-teal);
+    }
+
+    /* Responsive */
+    @media (max-width: 1024px) {
+      .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .guarantee-box {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .app-container {
+        padding: 12px 10px 40px;
+      }
+      .studio-frame {
+        border-radius: 24px;
+      }
+      .navbar {
+        padding: 18px 20px;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .nav-pill-menu {
+        width: 100%;
+        justify-content: center;
+        overflow-x: auto;
+      }
+      .nav-link {
+        padding: 6px 10px;
+        font-size: 12.5px;
+      }
+      .nav-play-btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .hero-section {
+        padding: 40px 20px 30px;
+      }
+      .hero-deck {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .deck-card.left, .deck-card.right {
+        display: none;
+      }
+      .deck-card.center {
+        width: 85%;
+        max-width: 290px;
+        transform: none;
+      }
+      .pill-left, .pill-right {
+        display: none;
+      }
+      .section-showcase, .features-section, .guarantee-section {
+        padding: 50px 20px;
+      }
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+      .listing-grid {
+        grid-template-columns: repeat(5, 230px);
+      }
+      .studio-footer {
+        padding: 30px 20px;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+      }
+      .footer-left {
+        flex-direction: column;
+      }
+      .footer-links {
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <div class="header-left">
-        <!-- Authentic Vector AppDeck Brand Logo -->
-        <div class="logo-wrap">
-          <svg viewBox="0 0 120 120" width="100%" height="100%">
-            <defs>
-              <linearGradient id="appBgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#14B8A6" />
-                <stop offset="60%" stop-color="#0F766E" />
-                <stop offset="100%" stop-color="#115E59" />
-              </linearGradient>
-              <linearGradient id="appBorderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="rgba(255,255,255,0.4)" />
-                <stop offset="100%" stop-color="rgba(255,255,255,0.05)" />
-              </linearGradient>
-            </defs>
-            <!-- Squircle Background -->
-            <rect x="6" y="6" width="108" height="108" rx="28" fill="url(#appBgGrad)" />
-            <rect x="6" y="6" width="108" height="108" rx="28" fill="none" stroke="url(#appBorderGrad)" stroke-width="2.5" />
-            <!-- Back Card (Tilted Screenshot) -->
-            <g transform="translate(48, 54) rotate(-10)">
-              <rect x="-24" y="-32" width="48" height="64" rx="8" fill="rgba(255,255,255,0.22)" stroke="rgba(255,255,255,0.45)" stroke-width="2" />
-            </g>
-            <!-- Front Card (Device Mockup) -->
-            <g transform="translate(68, 64) rotate(6)">
-              <rect x="-26" y="-35" width="52" height="70" rx="10" fill="#ffffff" filter="drop-shadow(0 3px 6px rgba(0,0,0,0.3))" />
-              <!-- Notch -->
-              <rect x="-8" y="-32" width="16" height="3" rx="1.5" fill="#0F766E" />
-              <!-- Header Bar -->
-              <rect x="-18" y="-22" width="36" height="4" rx="2" fill="#5EEAD4" />
-              <!-- Center AI Sparkle -->
-              <path d="M0 -3 L2 0 L5 0 L2 2 L3 5 L0 3 L-3 5 L-2 2 L-5 0 L-2 0 Z" fill="#0D9488" />
-            </g>
+
+  <div class="app-container">
+    <div class="studio-frame">
+
+      <!-- Navigation -->
+      <nav class="navbar">
+        <a href="index.html" class="brand-logo">
+          <img src="images/logo.png" alt="AppDeck Studio Logo" class="brand-logo-img">
+          <div class="brand-logo-text">
+            APPDECK <span class="brand-tag">STUDIO</span>
+          </div>
+        </a>
+
+        <!-- Frosted Nav Menu -->
+        <div class="nav-pill-menu">
+          <a href="#hero" class="nav-link active">Home</a>
+          <a href="#showcase" class="nav-link">Showcase</a>
+          <a href="#features" class="nav-link">Features</a>
+          <a href="privacy.html" class="nav-link">Privacy</a>
+          <a href="terms.html" class="nav-link">Terms</a>
+        </div>
+
+        <!-- Google Play Store CTA Button -->
+        <a href="https://play.google.com/store/apps/details?id=com.faysarukattil.appdeck" target="_blank" rel="noopener noreferrer" class="nav-play-btn">
+          <svg viewBox="0 0 512 512" width="20" height="20">
+            <path fill="#4285F4" d="M32.5 24.3L273.4 256 32.5 487.7c-5.7-4.7-9.5-12.2-9.5-20.7V45c0-8.5 3.8-16 9.5-20.7z"/>
+            <path fill="#FBBC04" d="M375.3 154.1L273.4 256l101.9 101.9 57.6-33.3c16.4-9.5 16.4-25.1 0-34.6l-57.6-35.9z"/>
+            <path fill="#EA4335" d="M273.4 256L32.5 24.3C37.2 20.3 43.6 18 51 22.3l324.3 131.8L273.4 256z"/>
+            <path fill="#34A853" d="M273.4 256l101.9 101.9L51 489.7c-7.4 4.3-13.8 2-18.5-2L273.4 256z"/>
           </svg>
-        </div>
-        <div>
-          <h1>AppDeck Studio</h1>
-          <div class="effective-date">Official Legal Portal • Effective Date: November 6, 2026</div>
-        </div>
-      </div>
+          <div>
+            <span class="nav-play-sub">GET IT ON</span>
+            <span class="nav-play-title">Google Play</span>
+          </div>
+        </a>
+      </nav>
 
-      <!-- Play Store Badge / Placeholder -->
-      <a href="#playstore" class="play-badge" onclick="alert('AppDeck Studio Google Play Store listing will be available shortly.'); return false;">
-        <svg viewBox="0 0 512 512" width="22" height="22">
-          <path fill="#4285F4" d="M32.5 24.3L273.4 256 32.5 487.7c-5.7-4.7-9.5-12.2-9.5-20.7V45c0-8.5 3.8-16 9.5-20.7z"/>
-          <path fill="#FBBC04" d="M375.3 154.1L273.4 256l101.9 101.9 57.6-33.3c16.4-9.5 16.4-25.1 0-34.6l-57.6-35.9z"/>
-          <path fill="#EA4335" d="M273.4 256L32.5 24.3C37.2 20.3 43.6 18 51 22.3l324.3 131.8L273.4 256z"/>
-          <path fill="#34A853" d="M273.4 256l101.9 101.9L51 489.7c-7.4 4.3-13.8 2-18.5-2L273.4 256z"/>
-        </svg>
-        <div>
-          <span class="play-badge-sub">GET IT ON</span>
-          <span class="play-badge-main">Google Play</span>
+      <!-- Hero Section -->
+      <section id="hero" class="hero-section">
+        <div class="hero-badge-wrap">
+          <div class="hero-badge">
+            <img src="images/logo.png" alt="AppDeck Icon" width="18" height="18" style="border-radius: 4px; vertical-align: middle;">
+            100% On-Device • Zero Ads • No Paywalls
+          </div>
         </div>
-      </a>
-    </header>
 
-    <div class="nav-tabs">
-      <a href="#terms" class="tab-btn active">Terms of Service</a>
-      <a href="#liability" class="tab-btn">Content & Liability</a>
-      <a href="#trademarks" class="tab-btn">Fair Use & Trademarks</a>
-      <a href="#privacy" class="tab-btn">Privacy Policy</a>
+        <h1 class="hero-title">
+          Studio Mockups. <span>Zero Hassle.</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Photorealistic device showcases for store launches & portfolios. Phone. Laptop. Tablet. One studio with endless ways to showcase.
+        </p>
+
+        <!-- Prominent High-Visibility Call-to-Action Buttons -->
+        <div class="hero-actions">
+          <a href="https://play.google.com/store/apps/details?id=com.faysarukattil.appdeck" target="_blank" rel="noopener noreferrer" class="btn-playstore-primary">
+            <svg viewBox="0 0 512 512" width="22" height="22">
+              <path fill="#4285F4" d="M32.5 24.3L273.4 256 32.5 487.7c-5.7-4.7-9.5-12.2-9.5-20.7V45c0-8.5 3.8-16 9.5-20.7z"/>
+              <path fill="#FBBC04" d="M375.3 154.1L273.4 256l101.9 101.9 57.6-33.3c16.4-9.5 16.4-25.1 0-34.6l-57.6-35.9z"/>
+              <path fill="#EA4335" d="M273.4 256L32.5 24.3C37.2 20.3 43.6 18 51 22.3l324.3 131.8L273.4 256z"/>
+              <path fill="#34A853" d="M273.4 256l101.9 101.9L51 489.7c-7.4 4.3-13.8 2-18.5-2L273.4 256z"/>
+            </svg>
+            Download Free on Google Play
+          </a>
+          <a href="#showcase" class="btn-hero-secondary">
+            Explore Store Listing Showcase ↓
+          </a>
+        </div>
+
+        <!-- 3D Layered Mockup Showcase -->
+        <div class="hero-deck">
+          <div class="deck-glow"></div>
+
+          <div class="deck-floating-pill pill-left">
+            <span class="pill-icon">⚡</span>
+            <span>100% On-Device Studio</span>
+          </div>
+
+          <div class="deck-floating-pill pill-right">
+            <span class="pill-icon">✦</span>
+            <span>500+ Templates • Lossless 4K</span>
+          </div>
+
+          <!-- Left Card -->
+          <div class="deck-card left" onclick="openLightbox('images/screen2.png')">
+            <img src="images/screen2.png" alt="Built for Socials and Creators">
+          </div>
+
+          <!-- Center Featured Card -->
+          <div class="deck-card center" onclick="openLightbox('images/screen1.png')">
+            <img src="images/screen1.png" alt="No Ads. No Paywalls. Ever.">
+          </div>
+
+          <!-- Right Card -->
+          <div class="deck-card right" onclick="openLightbox('images/screen3.png')">
+            <img src="images/screen3.png" alt="Studio-Grade Controls">
+          </div>
+        </div>
+      </section>
+
+      <!-- Store Listing Showcase -->
+      <section id="showcase" class="section-showcase">
+        <div class="section-header">
+          <span class="section-tag">GOOGLE PLAY STORE LISTING</span>
+          <h2 class="section-title">Official App Store Assets</h2>
+          <p class="section-subtitle">
+            Crafted directly inside AppDeck Studio. Click any screenshot below to inspect at full native resolution.
+          </p>
+        </div>
+
+        <!-- Carousel / Grid -->
+        <div class="listing-carousel-wrap">
+          <div class="listing-grid">
+
+            <!-- Screen 1 -->
+            <div class="listing-item" onclick="openLightbox('images/screen1.png')">
+              <div class="listing-preview">
+                <img src="images/screen1.png" alt="No Ads. No Paywalls. Ever." loading="lazy">
+              </div>
+              <div class="listing-info">
+                <div class="listing-name">No Ads. No Paywalls. Ever.</div>
+                <div class="listing-desc">Your professional mockup studio. Completely free with zero accounts or subscriptions required.</div>
+              </div>
+            </div>
+
+            <!-- Screen 2 -->
+            <div class="listing-item" onclick="openLightbox('images/screen2.png')">
+              <div class="listing-preview">
+                <img src="images/screen2.png" alt="Built for Socials & Creators" loading="lazy">
+              </div>
+              <div class="listing-info">
+                <div class="listing-name">Built for Socials & Creators</div>
+                <div class="listing-desc">Stand out on LinkedIn & X. Share studio-grade device mockups in one tap.</div>
+              </div>
+            </div>
+
+            <!-- Screen 3 -->
+            <div class="listing-item" onclick="openLightbox('images/screen3.png')">
+              <div class="listing-preview">
+                <img src="images/screen3.png" alt="Studio-Grade Controls" loading="lazy">
+              </div>
+              <div class="listing-info">
+                <div class="listing-name">Studio-Grade Controls</div>
+                <div class="listing-desc">Multi-touch scale, typography styling, custom gradients, and lossless 4K export.</div>
+              </div>
+            </div>
+
+            <!-- Screen 4 -->
+            <div class="listing-item" onclick="openLightbox('images/screen4.png')">
+              <div class="listing-preview">
+                <img src="images/screen4.png" alt="500+ Mockup Templates" loading="lazy">
+              </div>
+              <div class="listing-info">
+                <div class="listing-name">500+ Mockup Templates</div>
+                <div class="listing-desc">Phone, laptop, tablet. One studio with endless ways to showcase your app.</div>
+              </div>
+            </div>
+
+            <!-- Screen 5 -->
+            <div class="listing-item" onclick="openLightbox('images/screen5.png')">
+              <div class="listing-preview">
+                <img src="images/screen5.png" alt="Custom Fonts & Styling" loading="lazy">
+              </div>
+              <div class="listing-info">
+                <div class="listing-name">Custom Fonts & Styling</div>
+                <div class="listing-desc">50+ modern fonts, mesh gradients, and customizable text layers.</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Official Panoramic Poster Banner -->
+        <div class="poster-spotlight-card" onclick="openLightbox('images/poster.png')">
+          <div class="poster-img-wrap">
+            <img src="images/poster.png" alt="AppDeck Official Feature Graphic Poster" loading="lazy">
+          </div>
+          <div class="poster-caption">
+            <div class="poster-caption-text">
+              <h4>Studio Mockups. Zero Hassle.</h4>
+              <p>Photorealistic device showcases for store launches & portfolios.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" class="features-section">
+        <div class="section-header">
+          <span class="section-tag">ENGINEERED FOR PROS</span>
+          <h2 class="section-title">Built Without Compromise</h2>
+          <p class="section-subtitle">
+            Everything you need to ship world-class store listings, product hunt visuals, and portfolio presentations.
+          </p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Feature 1 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">🔒</div>
+            <h3>100% Local & Private</h3>
+            <p>Your screenshots never leave your device. AppDeck runs entirely offline with zero cloud uploads, zero telemetry, and zero third-party trackers.</p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">⚡</div>
+            <h3>500+ Curated Templates</h3>
+            <p>From sleek smartphones and folding devices to laptops, tablets, and lifestyle flatlays — all with precise corner radius masks.</p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">💎</div>
+            <h3>Lossless 4K GPU Export</h3>
+            <p>Powered by Flutter's high-speed Impeller rendering engine. Render ultra-crisp marketing mockups at up to 3840×2160 resolution instantly.</p>
+          </div>
+
+          <!-- Feature 4 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">✍️</div>
+            <h3>Google Fonts & Typography</h3>
+            <p>50+ modern fonts with multi-line text headers, subheadings, customizable weights, alignment, and letter spacing.</p>
+          </div>
+
+          <!-- Feature 5 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">🎨</div>
+            <h3>Studio Gradients & Mesh</h3>
+            <p>Apply multi-stop linear and radial gradient lighting, glassmorphic floating cards, or export transparent PNG cutouts for pitch decks.</p>
+          </div>
+
+          <!-- Feature 6 -->
+          <div class="feature-card">
+            <div class="feature-icon-box">🚫</div>
+            <h3>Zero Ads & Zero Paywalls</h3>
+            <p>No intrusive ads, no subscription popups, and no login required. Simply launch, import your screenshot, customize, and export.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Privacy & Offline Guarantee Box -->
+      <section class="guarantee-section">
+        <div class="guarantee-box">
+          <div class="guarantee-left">
+            <h2>The AppDeck Privacy Promise</h2>
+            <p>
+              Unlike online mockup generators that require you to upload confidential, unreleased app screenshots to remote cloud servers, AppDeck Studio executes 100% of its rendering locally on your Android device.
+            </p>
+            <div class="guarantee-badges">
+              <div class="guarantee-pill">
+                <span>✓</span> No Remote Servers
+              </div>
+              <div class="guarantee-pill">
+                <span>✓</span> No User Account Needed
+              </div>
+              <div class="guarantee-pill">
+                <span>✓</span> Fully Functional Offline
+              </div>
+            </div>
+          </div>
+
+          <div class="guarantee-right">
+            <div class="guarantee-item">
+              <div class="check-icon">✓</div>
+              <div>
+                <div class="guarantee-item-title">Local Media Storage Only</div>
+                <div class="guarantee-item-desc">Selected photos are read solely into memory to render your mockup and never transmitted anywhere.</div>
+              </div>
+            </div>
+
+            <div class="guarantee-item">
+              <div class="check-icon">✓</div>
+              <div>
+                <div class="guarantee-item-title">Standard Android Photo Picker</div>
+                <div class="guarantee-item-desc">Utilizes secure system photo pickers so the app never accesses unauthorized files or folders.</div>
+              </div>
+            </div>
+
+            <div class="guarantee-item">
+              <div class="check-icon">✓</div>
+              <div>
+                <div class="guarantee-item-title">Instant In-App Updates</div>
+                <div class="guarantee-item-desc">Directly integrated with Google Play In-App Updates for seamless, verified security releases.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="studio-footer">
+        <div class="footer-left">
+          <img src="images/logo.png" alt="AppDeck Logo" class="footer-logo-img">
+          <div class="footer-copyright">
+            © 2026 AppDeck Studio by faysarukattil. All rights reserved.
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <a href="#hero" class="footer-link">Home</a>
+          <a href="#showcase" class="footer-link">Showcase</a>
+          <a href="#features" class="footer-link">Features</a>
+          <a href="privacy.html" class="footer-link">Privacy Policy</a>
+          <a href="terms.html" class="footer-link">Terms of Service</a>
+          <a href="mailto:faysarukattil@gmail.com" class="footer-link">Support</a>
+        </div>
+      </footer>
+
     </div>
-
-    <!-- ── TERMS OF SERVICE ── -->
-    <section id="terms" class="card">
-      <h2>1. Terms of Service</h2>
-      <p>Please review these Terms of Service ("Terms", "Agreement") carefully before installing, accessing, or using <strong>AppDeck Studio</strong> ("the Application", "the Service"). By downloading, installing, accessing, or creating content with AppDeck Studio, you ("User", "You") expressly agree to be bound by these Terms.</p>
-
-      <h3>1.1 Nature of the Service</h3>
-      <p>AppDeck Studio is an on-device digital graphics composition application designed to allow developers, designers, digital artists, and creators to superimpose user-supplied imagery (such as UI screenshots, software mockups, and portfolio artwork) onto photorealistic, perspective, and isometric device mockup templates and frames.</p>
-
-      <h3>1.2 Eligibility and Authority</h3>
-      <p>By using the Application, you represent and warrant that you possess the legal capacity to enter into this Agreement, and that your use complies with all applicable local, national, and international laws, regulations, and industry standards.</p>
-    </section>
-
-    <!-- ── CONTENT & LIABILITY ── -->
-    <section id="liability" class="card">
-      <h2>2. User Content & Release of Liability</h2>
-      
-      <div class="legal-notice">
-        <span class="legal-caps">Legal Notice & Content Liability</span>
-        <p>AppDeck Studio operates strictly as an on-device graphics composition tool. AppDeck Studio, its developer(s), and contributors bear zero liability for any imagery, screenshot, mockup, or digital graphic exported, published, or commercially distributed by users. You assume sole legal and financial responsibility for all materials generated and shared.</p>
-      </div>
-
-      <h3>2.1 User Ownership & Intellectual Property Warranties</h3>
-      <p>You retain full ownership of any original screenshots, logos, and graphics that you import into the Application ("User Content"). By importing any image into AppDeck Studio, you represent and warrant that:</p>
-      <ul>
-        <li>You are the sole author, copyright owner, or authorized licensee of the User Content, OR you have secured all explicit legal rights, permissions, and commercial licenses required to use, reproduce, composite, and distribute such materials.</li>
-        <li>The User Content does not infringe, misappropriate, or violate any third-party copyright, trademark, patent, trade secret, publicity right, privacy right, or proprietary right.</li>
-        <li>The User Content does not contain unlawful, infringing, or plagiarized materials.</li>
-      </ul>
-
-      <h3>2.2 Responsibility for Distribution & Publishing</h3>
-      <p>AppDeck Studio functions as a client-side rendering engine. AppDeck does not pre-screen, monitor, verify, validate, or store user-imported images or exported mockups. You acknowledge and agree that:</p>
-      <ul>
-        <li>Any claim of plagiarism, intellectual property infringement, or trademark counterfeiting arising from mockups you export, share on social platforms (e.g., LinkedIn, X/Twitter, Instagram), upload to app marketplaces (e.g., Google Play, Apple App Store), or publish in commercial advertising is <strong>strictly your personal legal responsibility</strong>.</li>
-        <li>AppDeck shall not be named or held liable in any cease-and-desist notice, DMCA takedown, civil dispute, or legal proceeding resulting from your distribution of mockups.</li>
-      </ul>
-
-      <h3>2.3 Complete Indemnification</h3>
-      <p>You agree to defend, indemnify, and hold harmless AppDeck Studio and its developer(s) from and against any and all claims, liabilities, damages, losses, costs, and legal expenses (including reasonable attorneys' fees) arising out of or related to:</p>
-      <ul>
-        <li>Your use or misuse of the Application;</li>
-        <li>Any User Content, composite mockup, or exported graphic generated by you;</li>
-        <li>Any claim that your exported content infringes or misappropriates any intellectual property right of any third party;</li>
-        <li>Any violation of these Terms of Service.</li>
-      </ul>
-    </section>
-
-    <!-- ── TRADEMARKS & FAIR USE ── -->
-    <section id="trademarks" class="card">
-      <h2>3. Third-Party Trademarks & Nominative Fair Use</h2>
-      
-      <p>AppDeck Studio provides 3D and 2D digital frames representing consumer hardware devices (e.g., smartphones, laptops, tablets, smartwatches) solely to facilitate realistic interface presentation.</p>
-
-      <h3>3.1 Independent Development</h3>
-      <p>AppDeck Studio is an independently developed software application. AppDeck Studio is <strong>not endorsed by, sponsored by, directly affiliated with, or associated with</strong> Apple Inc., Google LLC, Samsung Electronics Co., Ltd., or any other hardware manufacturer or trademark holder.</p>
-
-      <h3>3.2 Nominative Fair Use</h3>
-      <p>All product names, brand names, model designations, and registered trademarks (including but not limited to <em>Apple, iPhone, iPad, MacBook, Apple Watch, Google, Pixel, Android, Samsung, Galaxy</em>) referenced within this application are the sole property of their respective trademark holders.</p>
-      <p>The use and visual depiction of these names and devices within AppDeck Studio is conducted strictly for <strong>descriptive identification, technical dimensional context, and visual mockup reference</strong> under the legal doctrine of <strong>Nominative Fair Use</strong>. Such reference does not imply any commercial affiliation or endorsement.</p>
-    </section>
-
-    <!-- ── PRIVACY POLICY ── -->
-    <section id="privacy" class="card">
-      <h2>4. Privacy Policy (100% Local & Private)</h2>
-      
-      <p>AppDeck Studio is engineered on the principle of <strong>privacy by design</strong>. Your creative designs, private application screenshots, and exported showcases remain exclusively on your device.</p>
-
-      <h3>4.1 Zero Remote Data Collection</h3>
-      <p>AppDeck Studio operates <strong>100% locally on your device</strong>. When you use AppDeck Studio:</p>
-      <ul>
-        <li>We <strong>do NOT collect, transmit, store, or monitor</strong> any user images, screenshots, imported files, or exported mockups.</li>
-        <li>We <strong>do NOT</strong> operate remote servers that process or archive your design assets.</li>
-        <li>We <strong>do NOT</strong> collect personal identifying information (PII), names, email addresses, or phone numbers.</li>
-        <li>We <strong>do NOT</strong> embed advertising trackers, analytics trackers, or third-party data broker SDKs.</li>
-      </ul>
-
-      <h3>4.2 Local Sandboxed Storage</h3>
-      <p>All showcase projects, design configurations, and template files reside strictly within your device's internal sandboxed application storage directory. You retain complete authority to delete or clear these files at any time via your device settings.</p>
-
-      <h3>4.3 Network Activity</h3>
-      <p>Network connectivity is utilized solely during the initial one-time download of the template asset pack and for verifying software integrity. Zero user-generated content or personal telemetry is transmitted.</p>
-    </section>
-
-    <!-- ── DISCLAIMER OF WARRANTIES ── -->
-    <section class="card">
-      <h2>5. Warranty Disclaimer & Limitation of Liability</h2>
-      <div class="legal-notice">
-        <span class="legal-caps">Disclaimer of Warranties</span>
-        <p>The Application and all template assets are provided on an "AS IS" and "AS AVAILABLE" basis without warranties of any kind, whether express, implied, statutory, or otherwise. In no event shall AppDeck or its developer(s) be liable for any indirect, incidental, special, punitive, or consequential damages arising from the use of or inability to use the Application.</p>
-      </div>
-    </section>
-
-    <footer>
-      <p>© 2026 AppDeck Studio. All rights reserved.</p>
-      <p style="margin-top: 6px;">Questions or support: <a href="mailto:faysarukattil@gmail.com">faysarukattil@gmail.com</a></p>
-    </footer>
   </div>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox-modal" onclick="closeLightbox()">
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close Lightbox">✕</button>
+      <img id="lightbox-img" src="" alt="Enlarged View">
+    </div>
+  </div>
+
+  <script>
+    function openLightbox(src) {
+      const modal = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const modal = document.getElementById('lightbox');
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+
 </body>
 </html>
